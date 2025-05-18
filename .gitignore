@@ -1,0 +1,60 @@
+# Compilación de Java
+*.class
+
+# Directorios de compilación
+/target/
+/bin/
+/out/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de IntelliJ IDEA
+.idea/
+/*.iml
+*.iws
+*.ipr
+
+# Configuración de Eclipse
+.project
+.classpath
+.settings/
+
+# Archivos de NetBeans
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Logs
+*.log
+
+# Archivos temporales
+*.swp
+*~
+*.tmp
+
+# Dependencias descargadas
+/.mvn/
+!/.mvn/wrapper/maven-wrapper.jar
+
+# Wrapper de Maven
+mvnw
+mvnw.cmd
+
+# Archivos de pruebas
+test-output/
+
+# Caches de Spring Boot
+.spring-boot-devtools.properties
+.spring-boot-devtools.*
+
+# Archivos de configuración sensibles (si los generas)
+application-*.yml
+application-*.properties
+
+# Ignora archivos de configuración de Docker si no se usan
+# docker-compose.override.yml
