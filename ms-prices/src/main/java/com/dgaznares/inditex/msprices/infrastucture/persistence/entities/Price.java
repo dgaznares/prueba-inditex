@@ -37,7 +37,7 @@ public class Price {
     @Column(name = "PRIORITY")
     private Integer priority;
     @Column(name = "PRICE")
-    private Double price;
+    private Double finalPrice;
     @Column(name = "CURR")
     private String currency;
 }

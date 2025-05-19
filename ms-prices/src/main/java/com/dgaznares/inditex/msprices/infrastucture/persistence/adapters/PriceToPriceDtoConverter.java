@@ -14,7 +14,7 @@ public class PriceToPriceDtoConverter implements Converter<Price, PriceDto>{
 	      return PriceDto.builder()
 	               .brandId(source.getBrandId())
 	               .endDate(source.getEndDate())
-	               .price(source.getPrice())
+	               .price(source.getFinalPrice())
 	               .priceList(source.getPriceList())
 	               .productId(source.getProductId())
 	               .startDate(source.getStartDate())

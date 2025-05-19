@@ -2,7 +2,6 @@ package com.dgaznares.inditex.msprices.infrastucture.controllers;
 
 import java.time.OffsetDateTime;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,6 @@ public class PriceController {
 	
 	private final PriceService priceService;
 
-	@Autowired
 	public PriceController(PriceService priceService) {
 		this.priceService = priceService;
 	}

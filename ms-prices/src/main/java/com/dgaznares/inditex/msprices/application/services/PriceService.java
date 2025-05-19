@@ -3,7 +3,6 @@ package com.dgaznares.inditex.msprices.application.services;
 import java.time.OffsetDateTime;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dgaznares.inditex.msprices.domine.model.PriceDto;
@@ -14,7 +13,6 @@ public class PriceService {
 	
 	private RetreavePricesUseCase retreavePrices;
 
-	@Autowired
 	public PriceService(RetreavePricesUseCase retreavePrices) {		
 		this.retreavePrices = retreavePrices;
 	}
