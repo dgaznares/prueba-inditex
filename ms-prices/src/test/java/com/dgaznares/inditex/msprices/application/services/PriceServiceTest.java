@@ -31,7 +31,7 @@ class PriceServiceTest {
 	}
 	
 	@Test
-	void getFinalPriceTest_ExpectecPrice() {
+	void getFinalPriceTest1_ExpectecPrice() {
 		
 		OffsetDateTime dateTime = OffsetDateTime.parse("2020-06-14T10:00:00Z");
 		Long productId=35455L;
@@ -52,8 +52,104 @@ class PriceServiceTest {
 		assertTrue(result.isPresent());
 		assertEquals(expected.get().getPrice(), result.get().getPrice()); 
 		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);
-		
 	}
+	
+	@Test
+	void getFinalPriceTest2_ExpectecPrice() {
+		
+		OffsetDateTime dateTime = OffsetDateTime.parse("2020-06-14T16:00:00Z");
+		Long productId=35455L;
+		Long brandId=1L;
+		PriceDto expectedDto = PriceDto.builder()
+				.brandId(1L)
+				.endDate(OffsetDateTime.parse("2020-06-14T18:30:00+02:00"))
+				.price(25.45)
+				.priceList(2)
+				.productId(35455L)
+				.startDate(OffsetDateTime.parse("2020-06-14T15:00:00+02:00"))
+				.build();
+		Optional<PriceDto> expected = Optional.of(expectedDto);
+		
+		when(retreavePrices.getFinalPrice(dateTime, productId, brandId)).thenReturn(expected);
+		Optional<PriceDto> result = priceService.getFinalPrice(dateTime, productId, brandId);
+		
+		assertTrue(result.isPresent());
+		assertEquals(expected.get().getPrice(), result.get().getPrice()); 
+		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);
+	}
+	
+	@Test
+	void getFinalPriceTest3_ExpectecPrice() {
+		
+		OffsetDateTime dateTime = OffsetDateTime.parse("2020-06-14T21:00:00Z");
+		Long productId=35455L;
+		Long brandId=1L;
+		PriceDto expectedDto = PriceDto.builder()
+				.brandId(1L)
+				.endDate(OffsetDateTime.parse("2020-12-31T23:59:59+01:00"))
+				.price(35.5)
+				.priceList(1)
+				.productId(35455L)
+				.startDate(OffsetDateTime.parse("2020-06-14T00:00:00+02:00"))
+				.build();
+		Optional<PriceDto> expected = Optional.of(expectedDto);
+		
+		when(retreavePrices.getFinalPrice(dateTime, productId, brandId)).thenReturn(expected);
+		Optional<PriceDto> result = priceService.getFinalPrice(dateTime, productId, brandId);
+		
+		assertTrue(result.isPresent());
+		assertEquals(expected.get().getPrice(), result.get().getPrice()); 
+		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);
+	}
+	
+	@Test
+	void getFinalPriceTest4_ExpectecPrice() {
+		
+		OffsetDateTime dateTime = OffsetDateTime.parse("2020-06-15T10:00:00Z");
+		Long productId=35455L;
+		Long brandId=1L;
+		PriceDto expectedDto = PriceDto.builder()
+				.brandId(1L)
+				.endDate(OffsetDateTime.parse("2020-12-31T23:59:59+01:00"))
+				.price(35.5)
+				.priceList(1)
+				.productId(35455L)
+				.startDate(OffsetDateTime.parse("2020-06-14T00:00:00+02:00"))
+				.build();
+		Optional<PriceDto> expected = Optional.of(expectedDto);
+		
+		when(retreavePrices.getFinalPrice(dateTime, productId, brandId)).thenReturn(expected);
+		Optional<PriceDto> result = priceService.getFinalPrice(dateTime, productId, brandId);
+		
+		assertTrue(result.isPresent());
+		assertEquals(expected.get().getPrice(), result.get().getPrice()); 
+		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);	
+	}
+	
+	@Test
+	void getFinalPriceTest5_ExpectecPrice() {
+		
+		OffsetDateTime dateTime = OffsetDateTime.parse("2020-06-14T10:00:00Z");
+		Long productId=35455L;
+		Long brandId=1L;
+		PriceDto expectedDto = PriceDto.builder()
+				.brandId(1L)
+				.endDate(OffsetDateTime.parse("2020-12-31T23:59:59+01:00"))
+				.price(38.95)
+				.priceList(4)
+				.productId(35455L)
+				.startDate(OffsetDateTime.parse("2020-06-15T16:00:00+02:00"))
+				.build();
+		Optional<PriceDto> expected = Optional.of(expectedDto);
+		
+		when(retreavePrices.getFinalPrice(dateTime, productId, brandId)).thenReturn(expected);
+		Optional<PriceDto> result = priceService.getFinalPrice(dateTime, productId, brandId);
+		
+		assertTrue(result.isPresent());
+		assertEquals(expected.get().getPrice(), result.get().getPrice()); 
+		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);
+	}
+	
 	@Test
 	void getFinalPriceTest_EmptyDto() {
 		
@@ -66,11 +162,5 @@ class PriceServiceTest {
 		
 		assertFalse(result.isPresent());
 		verify(retreavePrices, times(1)).getFinalPrice(dateTime, productId, brandId);
-		
 	}
-	
-	
-
-	
-
 }
