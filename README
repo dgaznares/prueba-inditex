@@ -13,14 +13,16 @@ Spring Boot
 Spring Data JPA
 H2 Database (en memoria)
 Lombok
+Swagger-OpenApi
 JUnit 5
 Mockito
 Spring Boot Test
 Jacoco (para cobertura de código)
 SonarLint
 Jenkins
-Docker (Al final no he poddio incluir Docker en las pruebas por problemas técnicos)
+Docker (Al final no he podido incluir Docker en las pruebas por problemas técnicos)
 JMeter
+Postman
 
 -Arquitectura y Patrones Utilizados
 
@@ -43,6 +45,7 @@ JMeter
        mvn spring-boot:run 
 
 -La aplicación estará disponible en http://localhost:8003.
+-Ayuda con Swagger-OpenApi: http://localhost:8003/swagger-ui/index.html
 
 -Cómo Ejecutar las Pruebas
 Pruebas Unitarias: Ejecutar con Maven: mvn test
