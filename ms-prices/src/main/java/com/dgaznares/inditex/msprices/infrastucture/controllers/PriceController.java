@@ -13,6 +13,9 @@ import com.dgaznares.inditex.msprices.application.exceptions.PriceNotFoundExcept
 import com.dgaznares.inditex.msprices.application.services.PriceService;
 import com.dgaznares.inditex.msprices.domine.model.PriceDto;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -26,15 +29,27 @@ public class PriceController {
 		this.priceService = priceService;
 	}
 
+	
+	@Operation(
+		    summary = "Obtiene el precio final de un producto según los parámetros recibidos",
+		    description = "Devuelve el precio final de un producto según los parámetros recibidos",
+		    responses = {
+		        @ApiResponse(responseCode = "200", description = "Precio encontrado"),
+		        @ApiResponse(responseCode = "404", description = "Precio no encontrado")
+		    }
+		)
 	@GetMapping
 	public ResponseEntity<PriceDto> getFinalPrice(
-			@RequestParam (name = "dateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime dateTime, 
-			@RequestParam (name= "productId") Long productId,
-			@RequestParam (name="brandId")    Long brandId) {
+			@Parameter(description = "Fecha de entrada", example = "2020-06-15T10:00:00Z")
+			@RequestParam (name="dateTime")  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) OffsetDateTime date, 
+			@Parameter(description = "Id del producto", example = "3545")
+			@RequestParam (name="productId")  Long product,
+			@Parameter(description = "Id de la compañia", example = "1")
+			@RequestParam  (name="brandId") Long brand) {
 		
-		log.info("Request received: {},{},{} ", dateTime, productId, brandId);
+		log.info("Request received: {},{},{} ", date, product, brand);
 		
-		return priceService.getFinalPrice(dateTime, productId, brandId)
+		return priceService.getFinalPrice(date, product, brand)
 				.map(ResponseEntity::ok)
 				.orElseThrow(() -> new PriceNotFoundException("No price found."));				
 
