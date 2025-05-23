@@ -1,0 +1,74 @@
+
+- Servicio de Consulta de Precios- ms-prices
+
+- Descripción
+
+Este proyecto Spring Boot proporciona un servicio REST para consultar el precio final de un producto en una fecha específica. 
+La aplicación consulta una base de datos en memoria (H2) que contiene información sobre las tarifas de precios aplicables en diferentes rangos de fechas y con diferentes prioridades.
+
+- Tecnologías Utilizadas
+
+Java 21
+Spring Boot
+Spring Data JPA
+H2 Database (en memoria)
+Lombok
+JUnit 5
+Mockito
+Spring Boot Test
+Jacoco (para cobertura de código)
+SonarLint
+Jenkins
+Docker (Al final no he poddio incluir Docker en las pruebas por problemas técnicos)
+JMeter
+
+-Arquitectura y Patrones Utilizados
+
+1.Arquitectura Hexagonal: La aplicación se estructura en capas independientes:
+     Dominio: Contiene la lógica de negocio principal.
+     Infraestructura: Actúa como un punto de entrada y salida (PriceController) y también la interacción con la base de datos (PriceRepository).
+     Aplicación: Contiene los detalles de implementación, coordinando las interacciones entre la infraestructura y el dominio (PriceService).
+2. RESTful API: Se expone un endpoint REST ("/api/prices") para la consulta de precios.
+3. Patrón de Repositorio: Se utiliza Spring Data JPA para abstraer la lógica de acceso a la base de datos.
+4. Principio SOLID. Se buscan la abstracción a través de interfaces.
+5. Clean Code: Se ha intentado mantener un código legible, con nombres descriptivos y funciones concisas.
+
+-Cómo Ejecutar la Aplicación
+1.  Requisitos: Tener instalado Java 21 y Maven.
+2.  Clonar el repositorio: git clone https://github.com/dgaznares/prueba-inditex.git
+3.  Navegar al directorio del microservicio:
+			cd prueba-inditex
+			cd ms-prices 
+4.  Ejecutar con Maven: 
+       mvn spring-boot:run 
+
+-La aplicación estará disponible en http://localhost:8003.
+
+-Cómo Ejecutar las Pruebas
+Pruebas Unitarias: Ejecutar con Maven: mvn test
+Pruebas de Integración: Ejecutar con Maven: mvn verify
+
+-Cobertura de Código (Jacoco)
+Después de ejecutar las pruebas (especialmente las de integración con "mvn verify"), se generará un informe de cobertura en:
+   Maven: target/jacoco-report/index.html
+
+-Consideraciones Adicionales
+Clean Code:Se ha procurado seguir principios de Clean Code en la medida de lo posible, como nombres significativos, funciones pequeñas y un código bien estructurado.
+SOLID: Se ha buscado aplicar los principios SOLID, especialmente la separación de responsabilidades y la inversión de dependencias a través de la arquitectura en capas.
+Gestión de Excepciones: Se ha implmentado un "ControllerAdvice" para una gestión más centralizada y el uso de códigos HTTP más específicos.
+Consulta Eficiente: La consulta a la base de datos en el "PriceRepository" se ha optimizado para buscar directamente los precios aplicables, 
+                    ordenando los resultados y limitándolos a 1 mediante paginación.
+
+Mejoras (Extras)
+Tests de Carga: Se han realizado pruebas de carga para evaluar el rendimiento del servicio bajo un gran número de peticiones simultáneas. 
+                Se ha utilizado JMeter para llevarlas cabo.
+Cobertura Adicional: En la pruebas de cobertura con Jacoco casi se ha  alcanzado un 100%.
+CI/CD: Se ha implementado una pipeline de Integración Continua y Entrega Continua (CI/CD) utilizando Jenkins, con GitHub para automatizar la construcción, pruebas y 
+       despliegue de la aplicación. (No he podido llevar a cabo el desliegue por problemas con Docker en local, y no he querido ir más allá)
+       El pipeline de Jenkins tiene las siguientes etapas:
+       - Obtiene el código del repositorio Git
+       - Lo construye.
+       - Lanza las pruebas y comprueba la cobertura. Necesario plugin, covertura
+       - Levanata la aplicación en local, y lanza las pruebas de rendimiento con JMeter. Necesario plugin Performance
+Logging: Implementar un sistema de logging. Yo he puesto lo que he necesitado uno para el seguimiento y la depuración de la aplicación.
+
