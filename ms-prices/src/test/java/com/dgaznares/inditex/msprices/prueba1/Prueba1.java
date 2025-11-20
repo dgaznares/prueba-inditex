@@ -10,9 +10,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import com.dgaznares.inditex.msprices.prueba1.Dto.Cantidad;
-import com.dgaznares.inditex.msprices.prueba1.Dto.Producto;
-import com.dgaznares.inditex.msprices.prueba1.Dto.User;
+import com.dgaznares.inditex.msprices.prueba1.dto.Cantidad;
+import com.dgaznares.inditex.msprices.prueba1.dto.Producto;
+import com.dgaznares.inditex.msprices.prueba1.dto.User;
 
 import lombok.extern.slf4j.Slf4j;
 

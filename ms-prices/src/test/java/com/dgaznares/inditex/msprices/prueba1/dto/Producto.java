@@ -1,4 +1,6 @@
-package com.dgaznares.inditex.msprices.prueba1.Dto;
+package com.dgaznares.inditex.msprices.prueba1.dto;
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +12,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class Cantidad {
-	private String cantidad;
+public class Producto {
+	private Integer cantidad;
     private String nombre;
+    private BigDecimal precio;
 }

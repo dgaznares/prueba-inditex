@@ -1,5 +1,5 @@
 
-package com.dgaznares.inditex.msprices.prueba1.Dto;
+package com.dgaznares.inditex.msprices.prueba1.dto;
 
 import java.math.BigDecimal;
 

@@ -3,6 +3,7 @@ package com.dgaznares.inditex.msprices.prueba2;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -54,6 +55,10 @@ public class Ejercicio12 {
 		
 		log.info("La lista de productos con un 10% de descuento es:");
 		listaDescuentos.forEach(p -> log.info(p.toString()));
+		
+		Function<String, String> sayHello = s->s.concat("Hello");
+		log.info(sayHello.apply("David"));
+		
 		
 	}
 	
