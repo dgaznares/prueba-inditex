@@ -10,9 +10,12 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @AutoConfigureMockMvc
 @SpringBootTest
+@Slf4j
 class PriceControllerTest {
 	
     @Autowired
@@ -32,6 +35,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
+	    log.info("Test 1, terminado");
 	}
 	
 	@Test
@@ -46,6 +50,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(2))
 	            .andExpect(jsonPath("$.price").value(25.45));
+	    log.info("Test 2, terminado");
 	}
 
 	
@@ -61,6 +66,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
+	    log.info("Test 3, terminado");
 	}
 
 	@Test
@@ -75,6 +81,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
+	    log.info("Test 4, terminado");
 	}
 	@Test
 	void test5() throws Exception {
@@ -88,6 +95,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(4))
 	            .andExpect(jsonPath("$.price").value(38.95));
+	    log.info("Test 5, terminado");
 	}
 	@Test
 	void test6() throws Exception {
@@ -98,6 +106,7 @@ class PriceControllerTest {
 	            .param("productId", "35455")
 	            .param("brandId", "1"))
 	            .andExpect(status().isNotFound());
+	    log.info("Test 6, terminado");
 	}
 	@Test
 	void test7() throws Exception {
@@ -107,6 +116,7 @@ class PriceControllerTest {
 	            .param("productId", "35455")
 	            .param("brandId", "1"))
 	            .andExpect(status().isInternalServerError());
+	    log.info("Test 7, terminado");
 	}
 	
 }
