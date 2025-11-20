@@ -36,7 +36,8 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
-	    log.info("Test 1, terminado. Vamos a ver qué hacemos con esto");
+
+	    log.info("Test 1, terminado. Conflico solucionado");
 	}
 	
 	@Test
