@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import com.dgaznares.inditex.msprices.prueba1.Dto.Empleado;
+import com.dgaznares.inditex.msprices.prueba1.dto.Empleado;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

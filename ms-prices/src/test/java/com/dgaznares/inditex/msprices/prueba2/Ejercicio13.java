@@ -1,7 +1,9 @@
 package com.dgaznares.inditex.msprices.prueba2;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 import com.dgaznares.inditex.msprices.prueba2.dto.Usuario;
@@ -26,9 +28,12 @@ public class Ejercicio13 {
 	}
 	
 	public BigDecimal getSaldo(Optional<Usuario> usuario) {
+		Function<BigDecimal, BigDecimal> dividePor2 =  s -> s.divide(new BigDecimal("2"), MathContext.DECIMAL32);
+		Function<Usuario, Optional<BigDecimal>> getSaldo = p->p.getSaldo();
+		
 		return usuario
-		.flatMap(p->p.getSaldo())
-		.map(s ->   s.divide(new BigDecimal("2")))
+		.flatMap(getSaldo)
+		.map(dividePor2)
 		.orElse(BigDecimal.ZERO);			
 	}
 	

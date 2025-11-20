@@ -1,7 +1,4 @@
-package com.dgaznares.inditex.msprices.prueba1.Dto;
-
-import java.util.Optional;
-
+package com.dgaznares.inditex.msprices.prueba1.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
-public class User {
-    Optional<String> email;
+public class Cantidad {
+	private String cantidad;
+    private String nombre;
 }

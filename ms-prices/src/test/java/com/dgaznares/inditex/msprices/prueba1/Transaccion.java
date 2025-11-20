@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.dgaznares.inditex.msprices.prueba1.Dto.TransaccionDto;
+import com.dgaznares.inditex.msprices.prueba1.dto.TransaccionDto;
 
 import lombok.extern.slf4j.Slf4j;
 
