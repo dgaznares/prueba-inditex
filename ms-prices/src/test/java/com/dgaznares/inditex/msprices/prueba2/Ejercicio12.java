@@ -53,7 +53,7 @@ public class Ejercicio12 {
 		Ejercicio12 ejercicio12 = ejercicio12Supp.get();
 		List<Producto> listaDescuentos = ejercicio12.aplicarDescuentoCondicional(ejercicio12.listaProductos);
 		
-		log.info("El resultado de La lista de productos con un 10% de descuento es:");
+		log.info("La lista dddde productos con un 10% de descuento es:");
 		listaDescuentos.forEach(p -> log.info(p.toString()));
 		
 		Function<String, String> sayHello = s->s.concat("Hello");
