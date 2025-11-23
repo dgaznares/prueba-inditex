@@ -75,7 +75,7 @@ public class Ejercicio9 {
         		.filter(edadImpar)
         		.map(e -> e.getEdad().intValue() * 2)
         		.toList();
-        log.info("Ejercicio11: " + empleadosEdadImpar); 	
+        log.info("Ejercicio11_Resultado:: " + empleadosEdadImpar); 	
 		
 										
 	
