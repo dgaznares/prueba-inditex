@@ -37,7 +37,8 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
 
-	    log.info("Test 1, terminado. Conflico1");
+
+	    log.info("Test 1, terminado.");
 	}
 	
 	@Test
@@ -52,6 +53,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(2))
 	            .andExpect(jsonPath("$.price").value(25.45));
+
 	    log.info("Test 2, Conflicto2");
 	}
 
@@ -83,6 +85,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(1))
 	            .andExpect(jsonPath("$.price").value(35.50));
+
 	    log.info("Test 4, conflicto4");
 	}
 	@Test
@@ -97,6 +100,7 @@ class PriceControllerTest {
 	            .andExpect(jsonPath("$.brandId").value(1))
 	            .andExpect(jsonPath("$.priceList").value(4))
 	            .andExpect(jsonPath("$.price").value(38.95));
+
 	    log.info("Test 5, conflitco5");
 	}
 	@Test
@@ -109,6 +113,7 @@ class PriceControllerTest {
 	            .param("brandId", "1"))
 	            .andExpect(status().isNotFound());
 	    log.info("Test 6, Conflicto6");
+
 	}
 	@Test
 	void test7() throws Exception {
@@ -118,6 +123,7 @@ class PriceControllerTest {
 	            .param("productId", "35455")
 	            .param("brandId", "1"))
 	            .andExpect(status().isInternalServerError());
+
 	    log.info("Test 7, Conflicto7");
 	}
 	

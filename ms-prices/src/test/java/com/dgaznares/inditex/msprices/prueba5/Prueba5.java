@@ -48,8 +48,7 @@ public class Prueba5 {
 		.flatMap(Optional::stream)
 		.collect(Collectors.summingDouble(Double::doubleValue));
 		
-		
-		log.info("El resultadooooo es: {}", resultado);
+		log.info("El resultado es: {}", resultado);
 		
 	}
 	
