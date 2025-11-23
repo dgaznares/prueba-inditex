@@ -49,7 +49,7 @@ public class Prueba5 {
 		.collect(Collectors.summingDouble(Double::doubleValue));
 		
 		
-		log.info("El resultado es: {}", resultado);
+		log.info("El resultadooooo es: {}", resultado);
 		
 	}
 	
